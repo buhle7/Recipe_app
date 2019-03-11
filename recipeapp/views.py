@@ -14,7 +14,7 @@ def index(request):
 
 
 def recipe_details(request, id):
-    recipe = Recipe.objects.select_related('').get(id=id)
+    recipe = Recipe.objects.select_related().get(id=id)
     data = {
         'recipe': recipe
     }
@@ -41,7 +41,6 @@ def create_recipe(request):
         ingredients = Ingredient(details=ingredients, recipe=recipe)
         directions = Direction(text=cook_instr, recipe=recipe)
         image = Photo(image=photo)
-
 
         ingredients.save()
         directions.save()
