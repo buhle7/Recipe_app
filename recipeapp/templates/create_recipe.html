@@ -1,0 +1,20 @@
+{% include 'partials/header.html' %}
+    {% load static %}
+
+    <form action="{% url 'create' %}" enctype="multipart/form-data" method="post">
+      {% csrf_token %}
+        Title:<br> <input type="text" name="title" id="title" required><br><br>
+        Preparing time :<br> <input type="text" name="prep_time" id="prep_time" required><br><br>
+        Cooking time :<br> <input type="text" name="cooking_time" id="cooking_time" required><br><br>
+        Servings :<br> <input type="number" name="servings" id="servings" required><br><br>
+        Ingredients:<br> <textarea rows="6" cols="50" type="text" name="ingredients" id="ingredients"required>
+        </textarea><br><br>
+        Cooking instructions:<br> <textarea rows="6" cols="50" name="cooking_instructions" id="cooking_instructions"
+                                          required> </textarea><br><br>
+        Ratings:<br> <input type="number" name="rating" id="rating" required><br><br>
+        Image: <input type="file" name="photo" id="photo" accept="image/*" required><br><br>
+
+      <input type="submit" value="Submit">
+    </form>
+
+{% include 'partials/footer.html' %}

@@ -1,0 +1,84 @@
+{% include 'partials/header.html' %}
+<style>
+    table {border: 1px solid-black;}
+
+    .checked {
+        color: orange;
+        }
+</style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <table>
+        {% for recipe in recipes %}
+
+            <tr>
+                <th rowspan="3">
+                    <img src="/recipes{{recipe.photo.url}}" width="70" height="70" border="1">
+                </th>
+                <td><a href="/recipes/details/{{recipe.id}}"><b>{{recipe}}</b></a></td>
+            </tr>
+            <tr>
+                {% if recipe.rating == 1 %}
+                <td>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                </td>
+                {% endif %}
+                {% if recipe.rating == 2 %}
+                <td>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                </td>
+                {% endif %}
+
+                {% if recipe.rating == 3 %}
+                <td>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                </td>
+                {% endif %}
+
+                {% if recipe.rating == 4 %}
+                <td>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                </td>
+                {% endif %}
+
+                {% if recipe.rating == 5 %}
+                <td>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                </td>
+                {% endif %}
+            </tr>
+
+            <tr>
+
+                <td>
+                    <b>Prep:</b> {{recipe.prep_time}}
+                    <b>Cook:</b> {{recipe.cooking_time}} minutes
+                    <b>Makes:</b> {{recipe.serving_value}} serves
+                </td>
+
+            </tr>
+
+        {% endfor %}
+    </table>
+
+{% include 'partials/footer.html' %}
